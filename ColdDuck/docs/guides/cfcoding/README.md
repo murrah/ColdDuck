@@ -28,6 +28,26 @@ ie make the hint the final attribute and start the text on a new line. It will l
 	Finally, some more info could go here....
 			
 Just suggestions.
+## Code samples in the Hint attribute
+Markdown (which JSDuck uses) will treat any text that is indented by 4 spaces as a code sample. This is really useful. And there is a small pitfall. If you code your hints as suggested you need to watch out for the indenting in your CFCs. 
+
+eg this will display the argument's hint text as normal text because evertying starts in column 1:
+	<cffunction name="myClass" returntype="any" access="public" hint="
+	My hint text ...
+	">
+	<cfargument name="myArgument" type="string" required="yes" hint="
+	My argument text	
+	">
+	</cffunction>
+
+while this will show the argument as a code sample because it is indented 4 spaces (assuming the cffunction tag is in column 1):
+	<cffunction name="myClass" returntype="any" access="public" hint="
+	My hint text ...
+	">
+		<cfargument name="myArgument" type="string" required="yes" hint="
+		My argument text	
+		">
+	</cffunction>
 
 ## Component Displayname attribute
 I have had a few issues when testing where sometimes (but not always) ColdDoc chokes if the cfcomponent tag does not have a 'displayname' attribute. I suspect it is something to do with my mapping tests or CF rather than ColdDoc. Just in case you experience this you can try adding the DisplayName.

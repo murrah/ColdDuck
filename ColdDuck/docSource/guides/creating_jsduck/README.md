@@ -40,7 +40,8 @@ JSDuck supports the use of a json encoded config file to avoid the need to have 
 In the BuildColdDocs.cfm configuration file you have the option of telling the ColdDuck strategy to create a JSDuck config file for you. You can set your JSDuck options there. ColdDuck will save a file called jsduckConfig.json to the same folder as BuildColdDocs.cfm so that it is ready to be used by the BuildDocs.bat file also in that folder. See BuildColdDocs.cfm for specific details. 
 ## BuildDocs.bat for Windows
 This is a simple batch file that contains:
-	path/to/jsduck.exe --config=jsduckConfig.json	
+	path/to/jsduck.exe --config=jsduckConfig.json
+You will need to change the path in the batch file to match your jsduck.exe location, or set it via your PATH environment variable.	
 ## BuildDocs for Mac 
 *(help needed here)*
 
