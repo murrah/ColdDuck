@@ -12,7 +12,12 @@ I have been a consumer of the Sencha ExtJS documentation for a while now and wan
 ## My CF to JSDuck strategy
 Mark Mandel's ColdDoc can be extended to produce different kinds of output by utilising a "strategy" cfc. It comes with one that produces the JavaDoc style HTML format. Strategies utilise the CF ComponentMetaData. So, I made my own strategy that takes ColdFusion CFCs and makes a pseudo-app in JavaScript code that is annotated using JSDuck formatting. Of course it auto-documents functions etc and picks up the 'hint' attributes where it finds them and uses all that to produce the raw material for rich documentation. It also works with CF ORM CFCs (although this part could be made even richer than it is at present).
 
-Here is a really quick video to demonstrate: (coming in an hour or so)
+Here is a really quick video to give an overview of what ColdDuck does: [http://www.screencast.com/t/5p4JqbvNR](http://www.screencast.com/t/5p4JqbvNR)
 
 Full documentation is in this package, of course.
+
+I hope you find this useful and fun. Perhaps you might like to improve it?
+
+Thanks,
+Murray
 
