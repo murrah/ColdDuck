@@ -1,3 +1,6 @@
-Hello. I am new.
+# ColdDuck
 
-Here is another line
+Beta v0.1
+
+## Introduction
+blah blah
