@@ -16,7 +16,7 @@ Mark Mandel's ColdDoc can be extended to produce different kinds of output by ut
 Here is a really quick video to give an overview of what ColdDuck does: [http://www.screencast.com/t/5p4JqbvNR](http://www.screencast.com/t/5p4JqbvNR)
 
 ### Installation
-1. Unzip / copy the /ColdDuck folder and contents into your ColdFusion webroot
+1. Unzip / copy the /ColdDuck folder and contents into your ColdFusion webroot (or a sub folder)
 1. Point your web browser at /ColdDuck/docs for the documentation
 
 I hope you find this useful and fun. Perhaps you might like to improve it?
