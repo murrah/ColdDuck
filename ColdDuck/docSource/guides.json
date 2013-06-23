@@ -1,0 +1,55 @@
+[
+      {
+          "title": "Guides",
+  			"items": [
+					     {
+					          "name": "introduction",
+					          "url": "guides/introduction",
+					          "title": "Introduction",
+					          "description": "Introduction to ColdDuck"
+					      },          
+					      {
+					          "name": "setup",
+					          "url": "guides/setup",
+					          "title": "Setup ColdDuck",
+					          "description": "What you need to do to set up Cold Duck."
+					      },          
+					      {
+					          "name": "getting_started",
+					          "url": "guides/getting_started",
+					          "title": "Getting Started",
+					          "description": "What you need to do to get started on producing beautiful Cold Fusion documentation."
+              			  },
+					      {
+					          "name": "colddoc_testing",
+					          "url": "guides/colddoc_testing",
+					          "title": "Testing your ColdDoc installation",
+					          "description": "Testing your ColdDoc installation"
+              			  },
+					      {
+					          "name": "creating_pseudoapp",
+					          "url": "guides/creating_pseudoapp",
+					          "title": "Creating the pseudoApp from your CFCs",
+					          "description": "Create the JS pseudoApp from your CFCs"
+              			  },
+					      {
+					          "name": "creating_jsduck",
+					          "url": "guides/creating_jsduck",
+					          "title": "Creating JSDuck documentation from the pseudoApp",
+					          "description": "Creating JSDuck documentation from the pseudoApp"
+              			  },
+					      {
+					          "name": "cfcoding",
+					          "url": "guides/cfcoding",
+					          "title": "Tips for ColdFusion to improve the documentation",
+					          "description": "Tips for ColdFusion to improve the documentation"
+              			  },
+					      {
+					          "name": "faq",
+					          "url": "guides/faq",
+					          "title": "FAQ",
+					          "description": "FAQ"
+              			  }
+              ]
+      }
+]
