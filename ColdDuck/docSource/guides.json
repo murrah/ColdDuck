@@ -1,55 +1,82 @@
-[
-      {
-          "title": "Guides",
-  			"items": [
-					     {
-					          "name": "introduction",
-					          "url": "guides/introduction",
-					          "title": "Introduction",
-					          "description": "Introduction to ColdDuck"
-					      },          
-					      {
-					          "name": "setup",
-					          "url": "guides/setup",
-					          "title": "Setup ColdDuck",
-					          "description": "What you need to do to set up Cold Duck."
-					      },          
-					      {
-					          "name": "getting_started",
-					          "url": "guides/getting_started",
-					          "title": "Getting Started",
-					          "description": "What you need to do to get started on producing beautiful Cold Fusion documentation."
-              			  },
-					      {
-					          "name": "colddoc_testing",
-					          "url": "guides/colddoc_testing",
-					          "title": "Testing your ColdDoc installation",
-					          "description": "Testing your ColdDoc installation"
-              			  },
-					      {
-					          "name": "creating_pseudoapp",
-					          "url": "guides/creating_pseudoapp",
-					          "title": "Creating the pseudoApp from your CFCs",
-					          "description": "Create the JS pseudoApp from your CFCs"
-              			  },
-					      {
-					          "name": "creating_jsduck",
-					          "url": "guides/creating_jsduck",
-					          "title": "Creating JSDuck documentation from the pseudoApp",
-					          "description": "Creating JSDuck documentation from the pseudoApp"
-              			  },
-					      {
-					          "name": "cfcoding",
-					          "url": "guides/cfcoding",
-					          "title": "Tips for ColdFusion to improve the documentation",
-					          "description": "Tips for ColdFusion to improve the documentation"
-              			  },
-					      {
-					          "name": "faq",
-					          "url": "guides/faq",
-					          "title": "FAQ",
-					          "description": "FAQ"
-              			  }
-              ]
-      }
-]
+[{
+    "title": "ColdDuck guide",
+    "items": [{
+            "title": "Using",
+            "items": [{
+                "name": "introduction",
+                "url": "guides/introduction",
+                "title": "Introduction",
+                "description": "Introduction to ColdDuck"
+            }, {
+                "name": "setup",
+                "url": "guides/setup",
+                "title": "Setup ColdDuck",
+                "description": "What you need to do to set up Cold Duck."
+            }, {
+                "name": "getting_started",
+                "url": "guides/getting_started",
+                "title": "Getting Started",
+                "description": "What you need to do to get started on producing beautiful Cold Fusion documentation."
+            }, {
+                "name": "colddoc_testing",
+                "url": "guides/colddoc_testing",
+                "title": "Testing your ColdDoc installation",
+                "description": "Testing your ColdDoc installation"
+            }, {
+                "name": "creating_pseudoapp",
+                "url": "guides/creating_pseudoapp",
+                "title": "Creating the pseudoApp from your CFCs",
+                "description": "Create the JS pseudoApp from your CFCs"
+            }, {
+                "name": "creating_jsduck",
+                "url": "guides/creating_jsduck",
+                "title": "Creating JSDuck documentation from the pseudoApp",
+                "description": "Creating JSDuck documentation from the pseudoApp"
+            }, {
+                "name": "cfcoding",
+                "url": "guides/cfcoding",
+                "title": "Tips to improve the documentation of your CFCs",
+                "description": "Tips to improve the documentation of your CFCs"
+            }, {
+                "name": "faq",
+                "url": "guides/faq",
+                "title": "FAQ",
+                "description": "FAQ"
+            }]
+        },
+
+        {
+            "title": "SuperBlog sample CFCs",
+            "items": [{
+                "name": "readme",
+                "url": "guides/CFC/readme",
+                "title": "Read Me"
+            }, {
+                "name": "mybaseclass",
+                "url": "guides/CFC/mybaseclass",
+                "title": "MyBaseClass"
+            }, {
+                "name": "blog",
+                "url": "guides/CFC/blog",
+                "title": "Blog"
+            }, {
+                "name": "comments",
+                "url": "guides/CFC/comments",
+                "title": "Comments"
+            }, {
+                "name": "users",
+                "url": "guides/CFC/users",
+                "title": "Users"
+            }, {
+                "name": "userorm",
+                "url": "guides/CFC/userorm",
+                "title": "ORM.User"
+            }, {
+                "name": "mystringutils",
+                "url": "guides/CFC/mystringutils",
+                "title": "Utils.MyStringUtils"
+            }]
+        }
+
+    ]
+}]

@@ -19,6 +19,30 @@ I initialise the Comments object and return it.
 	</cfscript>
 </cffunction>
 
+<cffunction name="setStyles" returntype="void" access="public" hint='
+Set CSS styles to comments based on the subset passed in.
+'>
+	<cfargument name="styleAttributeList" required="yes" type="string" hint='
+A list of attributes separated by semicolon (like CSS)
+####Allowable attributes	
+<<coldducktable{
+	"tableAttr" : "border=1",
+	"cellStyle"	: "padding:4px;",
+	"delim"		: "^",
+	"rows"		: [
+		 "Style^Comment"
+		,"font-size^Set the font size"
+		,"color^Sets the font colour"
+		,"background-color^Sets the background of the body of the comment"
+	]						
+}
+>>	
+'>
+	<cfscript>
+		return "";
+	</cfscript>
+</cffunction>
+
 <cffunction name="addComment" returntype="any" access="public" hint="
 I add a comment to a blog post
 	 

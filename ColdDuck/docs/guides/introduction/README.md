@@ -1,6 +1,6 @@
 # Introduction
 
-**This is a beta version (v0.1) - no guarantees!** Having said that it all seems to work nicely but I am the only tester so far. I have tested this using CF9, ColdDoc 1.0 and JSDuck 4.10.
+**This is a beta version (v0.2) - no guarantees!** Having said that it all seems to work nicely but I am the only tester so far. I have tested this using CF9, ColdDoc 1.0 and JSDuck 4.10.
 
 ##ColdDuck
 ... beautiful documentation for your ColdFusion classes using ColdDoc and JSDuck. 

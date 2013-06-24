@@ -3,14 +3,14 @@
 
 ColdDuck - A JSDuck Document Strategy for ColdDoc
 Murray Hopkins.
-v 0.1 21st June 2013
+v 0.2 25th June 2013
 https://github.com/murrah/ColdDuck
 												
 This ColdDoc strategy writes your CFCs as JavaScript files to make a pseudo-application that
 JSDuck can read and make nice documentation files out of. The JS functions are empty stubs but do have
 the parameter lists.
 		
-I cloned it from the HTMLAPIStrategy.cfc file
+I based this on the HTMLAPIStrategy.cfc file
 		
 1. Add a folder to ColdDoc/strategy called coldduck
 2. Add this component to that folder
@@ -109,6 +109,7 @@ but cant really get any hints from structures (apart from having meaningful fiel
 					// Generate the pseudoApp JS files
 		writePackagePages(arguments.qMetaData);
     </cfscript>
+
 </cffunction>
 
 <!------------------------------------------- PACKAGE ------------------------------------------->
@@ -189,12 +190,12 @@ We also add ExtJS class define and extend statements that JSDuck can understand.
 		var local = {};
 		var NL = instance.NL;		
 		var stopAtEnd = false; // for debugging
-		/* For debugging 
-		if (arguments.metaData.name contains 'comments') { //superblog.blog
+		/* For debugging
+		if (arguments.metaData.name contains 'iTextTables') { //superblog.blog
 			writeDump(arguments);
 			stopAtEnd = true;
 		}
-		*/
+		 */
 						// Get the metadata for the CFC file
 		local.cfcMetadata = arguments.metaData;
 
@@ -238,6 +239,8 @@ We also add ExtJS class define and extend statements that JSDuck can understand.
 						
 						// If there is a cfcomponent hint, use it
 		if (structKeyExists(cfcMetadata,'hint')) hint = cfcMetadata.hint;
+
+		hint = processColdDuckCustomTags(hint);
 
 		hint = NL & hint & NL;
 		
@@ -294,8 +297,7 @@ We also add ExtJS class define and extend statements that JSDuck can understand.
 		WriteOutput("<br>Wrote file:"&arguments.path);	
 
 		
-		if (stopAtEnd) {			
-			//writeoutput("#js#");		
+		if (stopAtEnd) {				
 			writeoutput("<pre>#js#</pre>");		
 			abort;		
 		}
@@ -303,6 +305,119 @@ We also add ExtJS class define and extend statements that JSDuck can understand.
 	</cfscript>
 </cffunction>
 
+<cffunction name="processColdDuckCustomTags" access="private" returntype="string" output="true" hint='
+Experimental. Quick and dirty test of the idea.
+				
+Look for any custom ColdDuck tags in the hint string passed in and process them.
+eg a table tag becomes HTML	
+<<coldducktable{
+	"tableAttr" : "border=1",
+	"cellStyle"	: "padding:3px",		
+	"delim"		: "^",
+	"rows"		: [
+		 "Style^Comment"
+		,"font-size^Set the font size"
+		,"color^Sets the font colour"
+		,"background-color^Sets the background of the body of the comment"
+	]						
+}
+>>			
+							
+'>
+	<cfargument name="hintStr" type="string" required="no" default="" hint="The hint to look in">
+	<cfscript>
+		var local = {};
+		var NL = instance.NL;
+		var spacer = '    ';
+		var hStr = arguments.hintStr;
+		var tableTag = "<<coldducktable";
+		
+		local.outStr = hStr;
+		local.currPos = 1;
+		
+					// Look for any coldduck table tags and turn them into html tables
+					// Note that JSDuck seems to ignore the cellPadding attribute on table
+		
+		local.pos = findNoCase(tableTag,hStr);
+		while (pos gt 0) {
+								// Extract the coldduck table tag section of the hint text,
+								// deserialze the json, convert that to a html table then
+								// replace the coldduck table tag with the html
+								
+			local.startStr = mid(outStr,currPos,pos-1);
+			local.rest = mid(outStr,pos+len(tableTag),len(outStr));
+			local.endTagPos = findNoCase(">>",rest);
+					
+			if (endTagPos) {
+				local.endStr = mid(rest,endTagPos+2,len(rest));
+				local.tableTagJson = mid(rest,1,endTagPos-1);
+								// Now process the tag json ie turn it into a HTML table
+								
+								// Get the json into a struct
+				local.tJson = DeserializeJson(tableTagJson);
+				
+								// Get any table attributes passed. 
+								// JSDuck seems very limited in what it will use.
+				local.tmp = '';				
+				if (structKeyExists(tJson,'tableAttr')) tmp = tJson.tableAttr;
+			    local.tableStr = NL&NL&'<table #tmp# >';
+			    
+			    				// Pick up any custom row/cell delimiter
+				local.delim = '^';				
+				if (structKeyExists(tJson,'delim')) delim = tJson.delim;
+			    
+			    				// Pick up any custom cell styles
+			    				// I havent tested all styles in terms of what JSDuck will do with them!
+			    				// Padding and text-align styles works. table cellPadding doesnt. This is just one way to achieve the result.
+				local.cellStyle = '';				
+				if (structKeyExists(tJson,'cellStyle')) {
+					cellStyle = ' style="#tJson.cellStyle#"';
+			    }
+			    
+			    if (structKeyExists(tJson,'rows')) {
+				    				// Loop over the rows, extract the cells (which are lists)
+				    				// and build the html from that			    
+				    local.colCount = listLen(tJson.rows[1],delim);
+				    for (local.i=1; i LTE arrayLen(tJson.rows); i=i+1){
+				    	local.cells = listToArray(tJson.rows[i],delim);
+				    	local.cellCount = arrayLen(cells);
+				    	
+				    				// JSDuck needs 4 char indenting for tr and td tags, hence the 'spacer'
+				    	local.cellStr = spacer;
+				    	
+				    				// Turn the cell list items into td tags.
+				    				// If there are insufficient list items, add the missing ones
+				    	for (local.c=1; c LTE colCount; c=c+1){
+				    		if (c lte cellcount) {
+				    			tmp = cells[c];
+				    		} else {
+				    			tmp = "&nbsp;";
+				    			
+				    		}
+				    		cellStr = cellStr & '<td valign="top"#cellStyle#>#tmp#</td>';	
+				    	}
+				    	
+				    	local.tableStr = local.tableStr & spacer & '<tr>#cellStr#</tr>' &NL;
+				    }
+				    
+				    local.tableStr = local.tableStr & '</table>' &NL&NL;
+				    
+					outStr = StartStr & tableStr & endStr;
+										// Look for another table tag.
+					hStr = outStr;
+					local.pos = findNoCase(tableTag,hStr);
+				} else pos = 0;					
+			} else pos = 0;
+
+			
+			//writeDump(local);
+		
+		}
+		
+		return outStr;
+	</cfscript>
+</cffunction>
+			
 <cffunction name="getFunctionsSection" access="private" returntype="string" output="true" hint="
 Loop over the CFC Functions metadata and create the relevant JS function declarations as well
 as the parameters, required, public, private, etc etc			
@@ -344,6 +459,8 @@ as the parameters, required, public, private, etc etc
 				} else {
 					if (not arguments.isPersistent) hint = instance.strategyOptions.MissingHintString;	
 				}
+				
+				hint = processColdDuckCustomTags(hint);
 				
 							// Add the function Hint text
 				js = js & NL & hint & NL;
@@ -422,6 +539,8 @@ Add property tags and related data
 			hint = "";
 			if (not arguments.isPersistent) hint = instance.strategyOptions.MissingHintString;
 			if (structKeyExists(parameters[p],'hint')) hint = parameters[p].hint;
+			
+			hint = processColdDuckCustomTags(hint);
 			
 					// Process the parameter name
 					// Look at whether it is required or not and any default values
