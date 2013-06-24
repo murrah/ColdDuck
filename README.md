@@ -1,6 +1,6 @@
 # ColdDuck
 
-Beta v0.1
+Beta v0.2
 
 ... beautiful documentation for your ColdFusion classes by leveraging [ColdDoc](https://github.com/markmandel/ColdDoc) and [JSDuck](https://github.com/senchalabs/jsduck). 
 
@@ -14,6 +14,15 @@ Mark Mandel's ColdDoc can be extended to produce different kinds of output by ut
 
 ### Video overview
 Here is a really quick video to give an overview of what ColdDuck does: [http://www.screencast.com/t/5p4JqbvNR](http://www.screencast.com/t/5p4JqbvNR)
+
+### Documentation
+The ColdDuck package includes the documentation. You can also view it here [http://murrah.com.au/coldduck/docs](http://murrah.com.au/coldduck/docs)
+### Sample output
+Here is the sample SuperBlog app documented with ColdDoc in [JavaDoc format](http://murrah.com.au/coldduck/samples/superblogcfc/javadoc/)
+
+Here is the sample SuperBlog app documented with ColdDuck in [JSDuck format](http://murrah.com.au/coldduck/samples/superblogcfc/docs)
+
+A full implementation of JSDuck style documentation is here [http://docs.sencha.com/extjs/4.1.3/](http://docs.sencha.com/extjs/4.1.3/)
 
 ### Installation
 1. Unzip / copy the /ColdDuck folder and contents into your ColdFusion webroot (or a sub folder)
