@@ -24,6 +24,8 @@ Here is the sample SuperBlog app documented with ColdDuck in [JSDuck format](htt
 
 A full implementation of JSDuck style documentation is here [http://docs.sencha.com/extjs/4.1.3/](http://docs.sencha.com/extjs/4.1.3/)
 
+Almost all of that JSDuck functionality is available for you to use for your ColdFusion projects. I say "almost" because there are a few JSDuck features that are JavaScript specific (eg view JS class source). 
+
 ### Installation
 1. Unzip / copy the /ColdDuck folder and contents into your ColdFusion webroot (or a sub folder)
 1. Point your web browser at /ColdDuck/docs for the documentation
