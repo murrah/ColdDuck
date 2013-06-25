@@ -30,6 +30,9 @@ Almost all of that JSDuck functionality is available for you to use for your Col
 1. Unzip / copy the /ColdDuck folder and contents into your ColdFusion webroot (or a sub folder)
 1. Point your web browser at /ColdDuck/docs for the documentation
 
+### Comments
+Please leave your comments at [my blog post](http://murrayhopkins.wordpress.com/2013/06/25/coldduck-beautiful-documentation-for-coldfusion-cfcs/)
+
 I hope you find this useful and fun. Perhaps you might like to improve it?
 
 Thanks,
