@@ -16,7 +16,7 @@ Mark Mandel's ColdDoc can be extended to produce different kinds of output by ut
 Here is a really quick video to give an overview of what ColdDuck does: [http://www.screencast.com/t/5p4JqbvNR](http://www.screencast.com/t/5p4JqbvNR)
 
 ### Documentation
-The ColdDuck package includes the documentation. You can also view it here [http://murrah.com.au/coldduck/docs](http://murrah.com.au/coldduck/docs)
+The ColdDuck package includes the documentation. You can also view it here [http://murrah.com.au/ColdDuck/docs](http://murrah.com.au/ColdDuck/docs)
 ### Sample output
 Here is the sample SuperBlog app documented with ColdDoc in [JavaDoc format](http://murrah.com.au/coldduck/samples/superblogcfc/javadoc/)
 
